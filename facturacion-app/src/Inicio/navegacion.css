@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+
+/* NUEVO: Contenedor Padre que envuelve todo */
+.app-layout {
+  display: flex;
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  width: 100%;
+  max-width: 100%;  /* Ocupa todo el ancho */
+  overflow: hidden; /* Evita que haya scroll doble en la página */
+}
+
+.sidebar {
+  width: 260px; 
+  height: 100%; /* Ahora es el 100% del padre .app-layout */
+  background-color: #a6653c;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 25px;
+  /* CAMBIO IMPORTANTE: Quitamos position: fixed */
+  /* position: fixed;  <-- ELIMINADO */
+  
+  /* Mantenemos el estilo visual */
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  font-family: 'DM Serif Display', serif;
+  box-sizing: border-box;
+  flex-shrink: 0; /* Evita que el sidebar se encoja si la pantalla es pequeña */
+  z-index: 10;
+}
+
+/* Área donde se renderiza el contenido (Outlet) */
+.main-content-wrapper {
+  flex: 1; /* Ocupa TODO el espacio restante a la derecha */
+  height: 100%;
+  overflow-y: auto; /* Permite scroll solo en el contenido, no en el sidebar */
+  overflow-x: hidden;
+  background-color: #f8f9fa; /* Fondo gris claro unificado */
+  /*position: relative;*/
+  min-width: 0;
+}
+
+/* ... (El resto de tus estilos .logo, .Menu, .User se mantienen igual) ... */
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.Menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 15px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.menu-item span {
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item i {
+  font-size: 24px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.User {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-top: 20px;
+  margin-top: auto;
+}
+
+.User img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.User span {
+  font-size: 20px;
+  font-weight: 400;
+}
